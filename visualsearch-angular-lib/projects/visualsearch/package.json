@@ -1,0 +1,33 @@
+{
+  "name": "@cx-spartacus/visualsearch",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": ">=14.3.0 <16.0.0",
+    "@angular/core": ">=14.3.0 <16.0.0",
+    "@angular/router": ">=14.3.0 <16.0.0",
+    "@angular/forms": ">=14.3.0 <16.0.0",
+    "@angular/platform-browser": ">=14.3.0 <16.0.0",
+    "rxjs": "^6.5.3 || ^7.4.0",
+    "@spartacus/core": ">=5.2.0 <7.0.0",
+    "@spartacus/storefront": ">=5.2.0 <7.0.0",
+    "@spartacus/cart": ">=5.2.0 <7.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "^14.3.0",
+    "@angular/core": "^14.3.0",
+    "@angular/router": "^14.3.0",
+    "@angular/forms": "^14.3.0",
+    "@angular/platform-browser": "^14.3.0",
+    "rxjs": "^6.6.0",
+    "@spartacus/core": "~5.2.0",
+    "@spartacus/storefront": "~5.2.0",
+    "@spartacus/cart": "~5.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "repository": {
+    "url": "https://github.tools.sap/CXAI/visual-search/tree/master"
+  },
+  "sideEffects": false
+}
