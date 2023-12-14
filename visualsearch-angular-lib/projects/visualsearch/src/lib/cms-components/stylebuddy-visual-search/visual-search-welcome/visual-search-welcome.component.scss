@@ -1,0 +1,14 @@
+@import '../../../common-styles/visual-search-general.scss';
+
+.welcome-screen {
+  //display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  > * {
+    flex: 1;
+  }
+  button {
+    margin-left: $spacer;
+    margin-bottom: $spacer;
+  }
+}

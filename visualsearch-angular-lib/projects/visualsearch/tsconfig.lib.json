@@ -9,6 +9,11 @@
     "types": []
   },
   "exclude": [
+    "src/test.ts",
     "**/*.spec.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "strictTemplates": true,
+    "strictInjectionParameters": true
+  }
 }

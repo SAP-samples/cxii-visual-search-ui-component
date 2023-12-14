@@ -1,0 +1,15 @@
+<ng-container *ngIf="product">
+  <div class="variant-section" *ngIf="product.baseOptions?.length">
+    <app-variant-style-selector
+      (onProductChangeEmitter)="handleProductChange($event)"
+      *ngIf="showStyleVariants && variants[variantType.STYLE]"
+      [variants]="variants[variantType.STYLE]"
+    ></app-variant-style-selector>
+    <app-variant-size-selector
+      (onProductChangeEmitter)="handleProductChange($event)"
+      *ngIf="showSizeVariants && variants[variantType.SIZE]"
+      [product]="product"
+      [variants]="variants[variantType.SIZE]"
+    ></app-variant-size-selector>
+  </div>
+</ng-container>

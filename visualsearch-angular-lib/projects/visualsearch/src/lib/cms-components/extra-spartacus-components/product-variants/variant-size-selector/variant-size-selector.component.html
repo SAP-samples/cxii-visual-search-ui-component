@@ -1,0 +1,23 @@
+<ng-container>
+  <div class="variant-selector">
+    <div class="variant-name">{{ "productVariants.size" | cxTranslate }}:</div>
+    <select
+      (change)="changeSize($any($event.currentTarget).value)"
+      class="form-control variant-select"
+    >
+    <!-- we don't have access to stockLevelStatus here. We assume if stockLevel is undefined, then product still has stock (e.g. via forceInStock)
+      can also modify product fetch endpoint to include baseOption(options(stock(FULL)))
+    -->
+      <ng-container *ngFor="let v of variants?.options">
+        <option
+          *ngIf="isInSelectedStyle(v.variantOptionQualifiers)"
+          value="{{ v.code }}"
+          [selected]="v.code === product?.code"
+          [disabled]="v.stock?.stockLevel <= 0"
+        >
+          {{ getVariantOptionValue(v.variantOptionQualifiers) }}  
+        </option>
+      </ng-container>
+    </select>
+  </div>
+</ng-container>
