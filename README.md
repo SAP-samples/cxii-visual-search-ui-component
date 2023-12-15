@@ -12,7 +12,7 @@ The [Reuse Tool](https://reuse.software/) must be used for your samples project.
 3. The README.md file (this file):
 Please edit this file as it is the primary description file for your project. You can find some placeholder titles for sections below.
 
-# [Title]
+# CXII-VISUAL-SEARCH-UI-COMPONENT
 <!-- Please include descriptive title -->
 
 <!--- Register repository https://api.reuse.software/register, then add REUSE badge:
@@ -20,12 +20,31 @@ Please edit this file as it is the primary description file for your project. Yo
 -->
 
 ## Description
-<!-- Please include SEO-friendly description -->
+This project contains UI library that can be integrated with Spartacus applications to get the Visual Search feature.
+
+This is implemented using angular framework and has few core spartacus modules as dependency.
 
 ## Requirements
+1. This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
+2. Node v18 or Node v18> is required
+3. Must have spartacus and commerce storefront application
 
 ## Download and Installation
-
+## Frontend:
+1. Clone the repo `https://github.com/SAP-samples/cxii-visual-search-ui-component`
+2. Go to `cxii-visual-search-ui-component/visualsearch-angular-lib/projects/visualsearch` and run `npm install`
+3. Go to `cxii-visual-search-ui-component/visualsearch-angular-lib` and run `npm install`
+4. Run `ng build --configuration production`
+5. Go to `dist/stylebuddy`
+6. Run `npm pack`
+7. Copy the generated `cx-spartacus-visualsearch-<version>.tzg` file to the your host application
+8. Add the file as dependancy in `package.json` of host app. 
+    ex: `@cx-spartacus/visualsearch": "file:cx-spartacus-visualsearch-<version>.tgz`
+9. Add the following entries to the `app.module.ts` file of host app.
+    a. import { StylebuddyVisualSearchModule } from '@cx-spartacus/visualsearch';
+    b. Add `StylebuddyVisualSearchModule` to @NgModule({imports:[]})
+## Backend:
+1. Create a sample page with Visual Search component from `Hybris Administration Console`
 ## Known Issues
 <!-- You may simply state "No known issues. -->
 
