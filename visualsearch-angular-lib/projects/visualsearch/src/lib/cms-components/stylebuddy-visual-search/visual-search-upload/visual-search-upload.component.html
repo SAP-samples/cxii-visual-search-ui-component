@@ -1,0 +1,19 @@
+<h4 class="description">{{ 'visualSearch.description' | cxTranslate }}</h4>
+
+<div class="search">
+  <button class="search-button" (click)="fileInput.click()">{{'visualSearchUpload.searchWithImage' | cxTranslate}}
+    <i class="fa fa-upload" aria-hidden="true"></i>
+  </button>
+  <input hidden #fileInput type="file" accept="image/*" (change)="onFileSelected($event)"/>
+</div>
+
+<ng-template [ngIf]="loading">
+  <div class="cx-spinner">
+    <cx-spinner></cx-spinner>
+  </div>
+</ng-template>
+
+
+
+
+

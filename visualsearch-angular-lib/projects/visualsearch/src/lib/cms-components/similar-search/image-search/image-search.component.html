@@ -1,0 +1,11 @@
+<div class="search">
+  <button class="search-button" (click)="fileInput.click()">
+    <i class="" aria-hidden="true"></i>
+  </button>
+  <input hidden #fileInput type="file" accept="image/*" (change)="onFileSelected($event)"/>
+</div>
+<div *ngIf="loading" class="spinner">
+  <div class="cx-spinner">
+    <cx-spinner></cx-spinner>
+  </div>
+</div>

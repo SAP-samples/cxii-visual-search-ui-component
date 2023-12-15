@@ -1,0 +1,27 @@
+@import '../../../common-styles/visual-search-general.scss';
+
+.description {
+  font-weight: 400;
+  margin-bottom: $spacer;
+}
+
+.search {
+  text-align: center;
+}
+
+.search-button {
+  background-color: unset;
+  padding: calc($small-padding * 2) $spacer;
+  border: $border-secondary;
+  transition: background-color .2s ease-out;
+  &:hover {
+    cursor: pointer;
+    background-color: var(--cx-color-background);
+  }
+  i {
+    margin-left: $small-padding;
+    padding: $small-padding;
+    background-color: var(--cx-color-background);
+    border-radius: 50%;
+  }
+}

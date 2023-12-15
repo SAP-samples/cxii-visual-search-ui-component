@@ -1,0 +1,25 @@
+<ng-container *ngIf="stylesFiltering()">
+  <div class="variant-selector">
+    <div *ngIf="variants.selected" class="variant-name">
+      <span class="style-name">{{
+        getVariantOptionValue(variants?.selected.variantOptionQualifiers)
+      }}</span>
+    </div>
+    <div class="d-flex variant-list">
+      <span
+        type="button"
+        *ngFor="let v of filteredVariants?.options"
+        [ngClass]="{
+          'selected-variant': v.code === variants?.selected.code
+        }"
+      >
+        <img
+          (click)="changeStyle(v)"
+          src="{{ getVariantThumbnailUrl(v.variantOptionQualifiers) }}"
+          title="{{ getVariantOptionValue(v.variantOptionQualifiers) }}"
+          alt="{{ getVariantOptionValue(v.variantOptionQualifiers) }}"
+        />
+      </span>
+    </div>
+  </div>
+</ng-container>
