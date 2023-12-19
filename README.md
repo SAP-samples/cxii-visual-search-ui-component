@@ -24,7 +24,7 @@ This is implemented using angular framework and has few core spartacus modules a
 2. Go to `cxii-visual-search-ui-component/visualsearch-angular-lib/projects/visualsearch` and run `npm install`
 3. Go to `cxii-visual-search-ui-component/visualsearch-angular-lib` and run `npm install`
 4. Run `ng build --configuration production`
-5. Go to `dist/stylebuddy`
+5. Go to `dist/visualsearch`
 6. Run `npm pack`
 7. Copy the generated `cx-spartacus-visualsearch-<version>.tzg` file to the your host application
 8. Add the file as dependancy in `package.json` of host app. 
