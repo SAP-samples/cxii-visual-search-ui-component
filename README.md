@@ -1,4 +1,4 @@
-# SAP CX Intelligene & Incubation Visual Search UI Component
+# SAP CX Intelligence & Incubation Visual Search UI Component
 <!-- Please include descriptive title -->
 
 <!--- Register repository https://api.reuse.software/register, then add REUSE badge:
@@ -7,7 +7,7 @@
 
 ## Description
 
-SAP CX Intelligene & Incubation Visual Search UI Component is an extension of SAP Commerce Storefront. 
+SAP CX Intelligence & Incubation Visual Search UI Component is an extension of SAP Commerce Storefront. 
 
 This project contains UI library that can be integrated with Spartacus applications to get the Visual Search feature.
 
