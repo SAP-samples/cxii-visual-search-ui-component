@@ -1,0 +1,46 @@
+<div class="source-image" *ngIf="sessionImage$ | async as image">
+  <div
+    class="image-wrapper"
+    *ngIf="{
+      selectedCategory: selectedCategory$ | async,
+      imageBeingUploaded: imageBeingUploaded$ | async
+    } as data"
+  >
+    <ng-container *ngIf="!data.imageBeingUploaded">
+      <img [src]="mediaBaseUrl + image.url" />
+      <div
+        class="image-overlay"
+        *ngIf="imageAnalysis$ | async as imageAnalysis"
+      > <ng-container
+        *ngFor="let detectedObject of imageAnalysis.categories; let i = index"
+      >
+        <div
+          (click)="selectCategory(detectedObject)"
+          [class.selected]="data.selectedCategory?.uid == detectedObject.uid"
+          class="dot"
+          [style.left.%]="detectedObject.centerX * 100"
+          [style.top.%]="detectedObject.centerY * 100"
+          [title]="detectedObject.code"
+        >
+          {{ i + 1 }}
+        </div>
+        <div
+          (click)="selectCategory(detectedObject)"
+          class="rectangle-box"
+          [style.left.%]="detectedObject.bboxLeft * 100"
+          [style.right.%]="(1 - detectedObject.bboxRight) * 100"
+          [style.top.%]="detectedObject.bboxTop * 100"
+          [style.bottom.%]="(1 - detectedObject.bboxBottom) * 100"
+        ></div>
+      </ng-container>
+
+      </div>
+    </ng-container>
+    <cx-spinner *ngIf="data.imageBeingUploaded"></cx-spinner>
+  </div>
+  <div class="backLinkDiv">
+    <a class="backLink" (click)="goBack($event)">{{'visualSearchResults.navigateBack' | cxTranslate}}</a>
+  </div>
+</div>
+
+

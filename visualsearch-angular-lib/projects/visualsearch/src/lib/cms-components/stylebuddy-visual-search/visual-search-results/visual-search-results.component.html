@@ -7,45 +7,50 @@
     </h4>
   </div>
 </div>
-<ng-container cxPageTemplate="ProductGridPageTemplate">
-  <div class="wrap">
-    <div class="preview">
-      <p class="previewFileName">{{fileName}}</p>
-      <img [src]="uploadedFileUrl" class="card-img-top" />
-      <div class="backLinkDiv">
-        <a class="backLink" href="#" (click)="goBack($event)">{{'visualSearchResults.navigateBack' | cxTranslate}}</a>
-      </div>
-    </div>
-    <div class="results-container">
-      <ng-container *ngFor="let product$ of productsFound$ | async;">
-        <ng-container *ngIf="product$ | async as product">
-            <div class="item" *ngIf="selectedVariants[product.code] || product as variant">
-              <cx-media [container]="variant.images?.PRIMARY" [format]="imageFormat" [alt]="variant.name ?? ''" class="image-format-{{imageFormat}}"></cx-media>
-              <div class="item-details">
-                <h3 class="cx-product-name">
-                  <a tabindex="0" [routerLink]="{ cxRoute: 'product', params: variant } | cxUrl">
-                    {{ variant.name }}
-                  </a>
-                </h3>
-                <div class="price">
-                  {{ variant.price?.formattedValue }}
-                </div>
-                <!-- TODO: handle variant change (updatedProductEmitter)="variantUpdated($event)" -->
-                <!--<app-external-product-variants-container
-                  [product]="variant"
-                  [showStyleVariants]="false"
-                  (updatedProductEmitter)="variantUpdated(product.code, $event)"
-                ></app-external-product-variants-container>-->
-                <div class="add-to-cart-btn">
-                  <cx-progress-button (click)="addToCart(variant.code)">
-                    <span>{{'visualSearchResults.addToCart' | cxTranslate}}</span>
-                  </cx-progress-button>
+<ng-container
+  *ngIf="{
+  similarProductMode: similarProductMode$ | async,
+  busy: busy$ | async,
+  error: error$ | async,
+  selectedCategory: selectedCategory$ | async,
+} as state"
+>
+  <div class="style-buddy-wrapper" *ngIf="sessionImage$ | async as image">
+    <lib-visual-search-preview-image></lib-visual-search-preview-image>
+    <ng-container cxPageTemplate="ProductGridPageTemplate">
+      <div class="wrap">
+        <div class="results-container">
+          <ng-container *ngFor="let product$ of productsFound$ | async;">
+            <ng-container *ngIf="product$ | async as product">
+              <div class="item" *ngIf="selectedVariants[product.code] || product as variant">
+                <cx-media [container]="variant.images?.PRIMARY" [format]="imageFormat" [alt]="variant.name ?? ''" class="image-format-{{imageFormat}}"></cx-media>
+                <div class="item-details">
+                  <h3 class="cx-product-name">
+                    <a tabindex="0" [routerLink]="{ cxRoute: 'product', params: variant } | cxUrl">
+                      {{ variant.name }}
+                    </a>
+                  </h3>
+                  <div class="price">
+                    {{ variant.price?.formattedValue }}
+                  </div>
+                  <!-- TODO: handle variant change (updatedProductEmitter)="variantUpdated($event)" -->
+                  <!--<app-external-product-variants-container
+                    [product]="variant"
+                    [showStyleVariants]="false"
+                    (updatedProductEmitter)="variantUpdated(product.code, $event)"
+                  ></app-external-product-variants-container>-->
+                  <div class="add-to-cart-btn">
+                    <cx-progress-button (click)="addToCart(variant.code)">
+                      <span>{{'visualSearchResults.addToCart' | cxTranslate}}</span>
+                    </cx-progress-button>
+                  </div>
                 </div>
               </div>
-            </div>
-        </ng-container>
-      </ng-container>
-    </div>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </ng-container>
 

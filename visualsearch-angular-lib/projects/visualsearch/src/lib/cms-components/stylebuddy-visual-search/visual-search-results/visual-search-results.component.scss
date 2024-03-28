@@ -6,6 +6,12 @@
   column-gap: $spacer;
 }
 
+.style-buddy-wrapper {
+  display: grid;
+  /* flex-wrap: nowrap; */
+  column-gap: 2%;
+  grid-template-columns: 15% auto;
+}
 
 .preview {
   max-width: $preview-image-width;

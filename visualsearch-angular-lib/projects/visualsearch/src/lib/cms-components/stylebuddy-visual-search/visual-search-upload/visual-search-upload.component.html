@@ -1,10 +1,32 @@
 <h4 class="description">{{ 'visualSearch.description' | cxTranslate }}</h4>
 
-<div class="search">
-  <button class="search-button" (click)="fileInput.click()">{{'visualSearchUpload.searchWithImage' | cxTranslate}}
-    <i class="fa fa-upload" aria-hidden="true"></i>
-  </button>
-  <input hidden #fileInput type="file" accept="image/*" (change)="onFileSelected($event)"/>
+<div (click)="fileInput.click()">
+  <div class="toggle">
+    <label>Search with image</label>
+    <div style="display: flex; align-items: center; justify-content: center">
+      <div class="upload-bg-image">
+      </div>
+    </div>
+    <span style="width: 10px">Upload a photo of your favorite style to find matching products.</span>
+  </div>
+  <div class="search">
+    <button class="search-button">Upload Image
+      <i class="fa fa-upload" aria-hidden="true"></i>
+    </button>
+    <input hidden #fileInput type="file" accept="image/*" (change)="onFileSelected($event)"/>
+  </div>
+</div>
+<div style="display: grid; grid-template-columns: 100px 100px; justify-content: center">
+  <div style="grid-column-start: 1;grid-column-end: 3;">
+    <span>Enable Object Detection</span>
+  </div>
+  <div style="grid-column-start: 3;">
+    <label class="switch">
+      <input type="checkbox" [checked]="isObjectDetectionEnabled" (change)="toggleObjectDetection($event)">
+      <span class="slider round"></span>
+    </label>
+  </div>
+
 </div>
 
 <ng-template [ngIf]="loading">
