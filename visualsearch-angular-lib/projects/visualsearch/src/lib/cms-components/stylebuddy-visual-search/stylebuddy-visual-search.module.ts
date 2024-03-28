@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {AsyncPipe, CommonModule, NgForOf, NgIf} from '@angular/common';
 import { VisualSearchComponent } from './visual-search/visual-search.component';
 import {RouterModule} from "@angular/router";
 import {CmsConfig, I18nModule, provideConfig, UrlModule} from "@spartacus/core";
@@ -11,6 +11,7 @@ import { vsTranslations, vsTranslationsChunksConfig } from '../../../assets/tran
 import {ExtraSpartacusComponentsModule} from "../extra-spartacus-components/extra-spartacus-components.module";
 import { SimilarSearchModule } from "../similar-search/similar-search.module";
 import { ImageSearchComponent } from '../similar-search/image-search/image-search.component';
+import { VisualSearchPreviewImageComponent } from './visual-search-preview-image/visual-search-preview-image.component';
 
 
 
@@ -20,19 +21,28 @@ import { ImageSearchComponent } from '../similar-search/image-search/image-searc
     VisualSearchWelcomeComponent,
     VisualSearchUploadComponent,
     VisualSearchResultsComponent,
+    VisualSearchPreviewImageComponent,
   ],
-    imports: [
-        CommonModule,
-        I18nModule,
-        RouterModule.forChild([]),
-        ProgressButtonModule,
-        SimilarSearchModule,
-        //to use product-grid-item component
-        MediaModule,
-        ExtraSpartacusComponentsModule,
-        UrlModule,
-        SpinnerModule,
-    ],
+  imports: [
+    CommonModule,
+    I18nModule,
+    RouterModule.forChild([]),
+    ProgressButtonModule,
+    SimilarSearchModule,
+    //to use product-grid-item component
+    MediaModule,
+    ExtraSpartacusComponentsModule,
+    UrlModule,
+    SpinnerModule,
+    AsyncPipe,
+    NgForOf,
+    NgIf,
+    AsyncPipe,
+    NgIf,
+    AsyncPipe,
+    NgIf,
+    AsyncPipe,
+  ],
   exports: [
     VisualSearchComponent,
     ImageSearchComponent
@@ -55,6 +65,7 @@ import { ImageSearchComponent } from '../similar-search/image-search/image-searc
             { path: 'welcome', component: VisualSearchWelcomeComponent },
             { path: 'upload', component: VisualSearchUploadComponent },
             { path: 'results', component: VisualSearchResultsComponent },
+            { path: 'preview', component: VisualSearchPreviewImageComponent },
           ]
         }
       }
