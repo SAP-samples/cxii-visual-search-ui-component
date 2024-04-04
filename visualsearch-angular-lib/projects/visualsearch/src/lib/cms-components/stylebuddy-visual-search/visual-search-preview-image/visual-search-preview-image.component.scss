@@ -1,0 +1,70 @@
+@import '../../../common-styles/visual-search-general.scss';
+@import '../../../common-styles/style-buddy-general.scss';
+.source-image {
+  //max-width: $image-max-width;
+  display: flex;
+  flex-direction: column;
+
+  .image-wrapper {
+    position: relative;
+
+    img {
+      width: 100%;
+      flex: 1;
+      object-fit: cover;
+      border: $border;
+    }
+    a {
+      margin-top: $spacer;
+    }
+  }
+
+
+  .image-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+
+    .dot {
+      z-index: 100;
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      margin-left: -9px;
+      margin-top: -9px;
+      background-color: var(--cx-color-primary);
+      border-radius: 50%;
+      border: 1px solid var(--cx-color-inverse);
+      color: var(--cx-color-inverse);
+      font-size: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.selected {
+        outline: 5px solid var(--cx-color-secondary);
+        font-weight: bold;
+        border-width: 2px;
+      }
+    }
+
+    .dot:hover + .rectangle-box, .rectangle-box:hover, .dot.selected + .rectangle-box {
+      display: block;
+    }
+
+    .rectangle-box {
+      position: absolute;
+      opacity: .2;
+      background: var(--cx-color-primary);
+      box-shadow: 0 0 5px;
+      display: none;
+    }
+  }
+
+  app-visual-search-button {
+    text-align: center;
+  }
+}
